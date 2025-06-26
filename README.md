@@ -23,13 +23,55 @@ To perform a basic vulnerability scan on my personal computer using a free vulne
 
 ## 📊 Summary of Findings
 
-| Vulnerability Title               | Severity | CVE ID         | Description                                                                 | Suggested Fix                                     |
-|----------------------------------|----------|----------------|-----------------------------------------------------------------------------|--------------------------------------------------|
-| SSL Certificate Expiry Warning   | Medium   | -              | SSL certificate is nearing expiration.                                      | Renew the certificate.                           |
-| SMB Signing Not Required         | High     | CVE-2017-0143  | Could allow remote attackers to exploit SMB.                               | Enable SMB signing or disable SMBv1.             |
-| Outdated Software Detected       | Medium   | -              | Some applications were not up-to-date.                                     | Update all software to the latest versions.      |
-| Open Ports Detected              | Info     | -              | Ports 135, 139, and 445 were open.                                          | Close unnecessary ports or restrict via firewall
 
+| Metric                    | Value              |
+|---------------------------|--------------------|
+| Scan Name                 | Local Vulnerability Scan |
+| Plugin Feed Version       | 202505290308       |
+| Scan Duration             | 18 minutes         |
+| Hosts Scanned             | 3 (Local and LAN)  |
+| Critical Vulnerabilities  | 1                  |
+| High Vulnerabilities      | 4                  |
+| Medium Vulnerabilities    | 2                  |
+| Info / Low                | Many (74+ info)    |
+
+
+## ⚠️ Critical & High Vulnerabilities Found
+
+### 1. 🛑 Node.js Multiple Vulnerabilities (CVE-2024-21892, CVE-2024-22019, etc.)
+- **Severity**: Critical
+- **Affected Package**: Node.js v20.11.0
+- **Description**: Multiple high-risk vulnerabilities affecting HTTP processing, path traversal, DoS, and crypto timing attacks.
+- **Fix**: Upgrade to Node.js `20.11.1` or higher.
+
+---
+
+### 2. 🚨 Tornado Python Library DoS (CVE-2025-47287)
+- **Severity**: High
+- **Issue**: Logging-based denial-of-service vulnerability in Tornado < 6.5.0.
+- **Fix**: Upgrade to Tornado version `6.5.0`.
+
+---
+
+### 3. ⚠️ SSL Certificate Cannot Be Trusted
+- **Severity**: Medium
+- **Issue**: Self-signed SSL cert used by Nessus web interface.
+- **Fix**: Use a certificate from a trusted CA if using publicly.
+
+---
+
+## 🧠 Lessons Learned
+- Identified real-world vulnerabilities and learned to assess severity using CVSS scores.
+- Understood how outdated packages (Node.js, Tornado) pose significant risks.
+- Practiced best practices like updating dependencies and using verified certificates.
+
+---
+
+## 🖼️ Screenshots Included
+- ✅ Scan summary dashboard
+- ✅ List of vulnerabilities by severity
+- ✅ Detailed CVEs (Node.js, Tornado, SSL)
+- ✅ Host details (IP, MAC, OS)
 
 
 ## 📖 Key Concepts Covered
